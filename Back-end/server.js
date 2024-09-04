@@ -214,7 +214,7 @@ app.post('/login', checkSQLConnection, async (req, res) => {
   }
 });
 
-const HOST = "192.168.3.174"
+const HOST = "192.168.3.148"
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, HOST,() => {
   console.log(`Server is running on port ${PORT}`);

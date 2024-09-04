@@ -64,7 +64,7 @@ function Home() {
   }, [currentPage, allData, itemsPerPage]);
 
   const fetchData = () => {
-    axios.get('http://192.168.3.174:5001/data')
+    axios.get('http://192.168.3.148:5001/data')
       .then(response => {
         console.log("danh sách list", response.data);
         
@@ -85,7 +85,7 @@ function Home() {
   const handleSave = (formData) => {
     console.log("Dữ liệu gửi lên server:", formData);
   
-    axios.post("http://192.168.3.174:5001/api/data", formData)
+    axios.post("http://192.168.3.148:5001/api/data", formData)
       .then(response => {
         console.log("Dữ liệu mới thêm từ server:", response.data);
   
@@ -123,7 +123,7 @@ function Home() {
         {
           label: 'Xóa',
           onClick: () => {
-            axios.delete(`http://192.168.3.174:5001/api/data/${id}`)
+            axios.delete(`http://192.168.3.148:5001/api/data/${id}`)
               .then(response => {
                 fetchData();
               })

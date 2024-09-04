@@ -38,7 +38,7 @@ const AddMhe = ({ open, handleOpen }) => {
 
             console.log("Dữ liệu gửi đi:", formDataToSend); // Logging formData
 
-            await axios.post("http://192.168.3.174:5001/api/data", formDataToSend, {
+            await axios.post("http://192.168.3.148:5001/api/data", formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
