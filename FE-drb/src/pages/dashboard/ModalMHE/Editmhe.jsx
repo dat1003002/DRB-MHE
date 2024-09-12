@@ -39,7 +39,7 @@ const EditMhe = ({ open, handleOpen, item }) => {
             formData.append('image', formValues.image);
         }
 
-        axios.put(`http://192.168.3.148:5001/api/data/${item.id}`, formData, {
+        axios.put(`http://192.168.3.174:5001/api/data/${item.id}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

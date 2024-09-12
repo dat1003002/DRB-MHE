@@ -107,7 +107,6 @@ app.post('/api/data', upload.single('image'), async (req, res) => {
   }
 });
 
-
 app.get('/api/search', checkSQLConnection, async (req, res) => {
   const { name } = req.query;
 
@@ -129,7 +128,6 @@ app.get('/api/search', checkSQLConnection, async (req, res) => {
     res.status(500).json({ message: "Error searching data" });
   }
 });
-
 
 app.put('/api/data/:id', upload.single('image'), async (req, res) => {
   try {
@@ -214,7 +212,7 @@ app.post('/login', checkSQLConnection, async (req, res) => {
   }
 });
 
-const HOST = "192.168.3.148"
+const HOST = "192.168.3.174"
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, HOST,() => {
   console.log(`Server is running on port ${PORT}`);

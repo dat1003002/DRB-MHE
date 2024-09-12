@@ -35,28 +35,28 @@ export function DashboardNavbar() {
   color={fixedNavbar ? "white" : "transparent"}
   className={`rounded-xl transition-all ${
     fixedNavbar
-      ? "fixed top-0 left-0 right-0 z-40 py-3 shadow-md shadow-blue-gray-500/5"
-      : "px-0 py-1"
+      ? "fixed top-0 left-0 right-0 z-40 shadow-md shadow-blue-gray-500/5"
+      : "px-0 py-0"
   }`}
   fullWidth
   blurred={fixedNavbar}
 >
-  <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center bg-[red] h-[80px]">
-    <div className="">
-      <img src="/img/logo1.jpg" alt="" className="w-[80%]" />
+  <div className="flex flex-row justify-between items-center gap-4 bg-[red] h-[50px] px-4">
+    <div className="flex-shrink-0">
+      <img
+        src="/img/logo1.jpg"
+        alt="Logo"
+        className="h-[40px] w-auto max-w-[120px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px] xl:max-w-[300px]"
+      />
     </div>
-    <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">
+
+    {/* Tiêu đề */}
+    <div className="flex-1 text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">
       <p>BẢNG TIÊU CHUẨN CÔNG VIỆC</p>
     </div>
-    <div className="flex items-center">
-      {/* <IconButton
-        variant="text"
-        color="blue-gray"
-        className="grid xl:hidden"
-        onClick={handleLogout}
-      >
-        <ArrowUpOnSquareStackIcon className="h-5 w-5 text-white" />
-      </IconButton> */}
+
+    {/* Nút điều khiển */}
+    <div className="flex items-center space-x-2">
       <Menu>
         <MenuHandler>
           <IconButton variant="text" color="blue-gray">
@@ -81,7 +81,6 @@ export function DashboardNavbar() {
     </div>
   </div>
 </Navbar>
-
 
   );
 }

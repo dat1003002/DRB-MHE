@@ -64,7 +64,7 @@ function Home() {
   }, [currentPage, allData, itemsPerPage]);
 
   const fetchData = () => {
-    axios.get('http://192.168.3.148:5001/data')
+    axios.get('http://192.168.3.174:5001/data')
       .then(response => {
         console.log("danh sách list", response.data);
         
@@ -85,7 +85,7 @@ function Home() {
   const handleSave = (formData) => {
     console.log("Dữ liệu gửi lên server:", formData);
   
-    axios.post("http://192.168.3.148:5001/api/data", formData)
+    axios.post("http://192.168.3.174:5001/api/data", formData)
       .then(response => {
         console.log("Dữ liệu mới thêm từ server:", response.data);
   
@@ -123,7 +123,7 @@ function Home() {
         {
           label: 'Xóa',
           onClick: () => {
-            axios.delete(`http://192.168.3.148:5001/api/data/${id}`)
+            axios.delete(`http://192.168.3.174:5001/api/data/${id}`)
               .then(response => {
                 fetchData();
               })
@@ -175,6 +175,14 @@ function Home() {
   return (
     <>
       <div className="flex mt-4">
+      <Button
+        className="bg-[#337ab7] text-white px-2 py-1 m-1 rounded flex items-center ml-4"
+        onClick={() => setOpenAddDialog(true)}
+        disabled={userRole === "user"}
+        >
+         <PlusCircleIcon className="h-5 w-5 text-white" />
+         Thêm Mới
+      </Button>
         <div className="ml-auto md:mr-4 md:w-72">
           <Input 
             label="Tìm kiếm tên sản phẩm"
@@ -186,8 +194,8 @@ function Home() {
       <div className="flex flex-wrap -mx-2 mt-3 p-4">
         {data.map((item) => (
           <div key={item.id} className="w-1/3 mb-4 relative group p-2">
-            <div className="card bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full border-2 border-black rounded h-[100%] flex flex-col">
-  <div className="relative flex-grow flex items-center justify-center">
+          <div className="card bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full border-2 border-black rounded h-[100%] flex flex-col">
+          <div className="relative flex-grow flex items-center justify-center">
     <img src={item.image} alt={item.name} className="max-w-full max-h-full object-cover" />
     {userRole === "admin" ? (
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
